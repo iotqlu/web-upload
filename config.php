@@ -21,7 +21,7 @@ $use_auth = true;
 // Generate secure password hash - https://tinyfilemanager.github.io/docs/pwd.html
 $auth_users = array(
     'admin' => '$2y$10$/K.hjNr84lLNDt8fTXjoI.DBp6PpeyoJ.mGwrrLuCZfAwfSAGqhOW', //admin@123
-    'user' => '$2y$10$Fg6Dz8oH9fPoZ2jJan5tZuv6Z4Kp7avtQ9bDfrdRntXtPeiMAZyGO', //12345
+    'demo' => '$2y$10$Fg6Dz8oH9fPoZ2jJan5tZuv6Z4Kp7avtQ9bDfrdRntXtPeiMAZyGO', //12345
 '201795040038' => '$2y$10$N..6i0GgYX6Rbnf3inF2gea/cTpIuUN7qfjGobJBLLcYxRezQLQcO',
 '201903040042' => '$2y$10$dqvxeqyHC.DgVk8CmpATAO08HuJT4WnBIgxZ4AxeTbdaa1TjKln0u',
 '201903040043' => '$2y$10$ZQ/rXKPaZyEDNNM0UmGJ5uSbbHoy8PWAyTc/CwvyybWSSnSSNZrzq',
@@ -146,6 +146,7 @@ $http_host = $_SERVER['HTTP_HOST'];
 //$directories_users = array();
 $directories_users = array(
     'admin' => '../web-s21/',
+    'demo' => '../web-s21/demo',
     '201795040038' => '../web-s21/201795040038',
     '201903040042' => '../web-s21/201903040042',
     '201903040043' => '../web-s21/201903040043',
