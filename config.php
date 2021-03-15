@@ -145,7 +145,7 @@ $http_host = $_SERVER['HTTP_HOST'];
 // array('Username' => 'Directory path', 'Username2' => 'Directory path', ...)
 //$directories_users = array();
 $directories_users = array(
-    'admin' => '',
+    'admin' => './',
     'demo' => 'demo',
     '201795040038' => '201795040038',
     '201903040042' => '201903040042',
