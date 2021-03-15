@@ -127,7 +127,8 @@ $edit_files = true;
 
 // Default timezone for date() and time()
 // Doc - http://php.net/manual/en/timezones.php
-$default_timezone = 'Etc/UTC'; // UTC
+//$default_timezone = 'Etc/UTC'; // UTC
+$default_timezone = 'Asia/Shanghai';
 
 // Root path for file manager
 // use absolute path of directory i.e: '/var/www/folder' or $_SERVER['DOCUMENT_ROOT'].'/folder'
@@ -257,7 +258,7 @@ $exclude_items = array();
 // google => View documents using Google Docs Viewer
 // microsoft => View documents using Microsoft Web Apps Viewer
 // false => disable online doc viewer
-$online_viewer = 'google';
+$online_viewer = 'microsoft';
 
 // Sticky Nav bar
 // true => enable sticky header
