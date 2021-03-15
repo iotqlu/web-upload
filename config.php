@@ -239,11 +239,11 @@ $datetime_format = 'd.m.y H:i:s';
 
 // Allowed file extensions for create and rename files
 // e.g. 'txt,html,css,js'
-$allowed_file_extensions = '';
+$allowed_file_extensions = 'gif,png,jpg,jpeg,html,htm,txt,css,js,json,svg,ico';
 
 // Allowed file extensions for upload files
 // e.g. 'gif,png,jpg,html,txt'
-$allowed_upload_extensions = '';
+$allowed_upload_extensions = 'gif,png,jpg,jpeg,html,htm,txt,css,js,json,svg,ico';
 
 // Favicon path. This can be either a full url to an .PNG image, or a path based on the document root.
 // full path, e.g http://example.com/favicon.png
@@ -252,7 +252,11 @@ $favicon_path = '';
 
 // Files and folders to excluded from listing
 // e.g. array('myfile.html', 'personal-folder', '*.php', ...)
-$exclude_items = array();
+$exclude_items = array(
+    '*.php',
+    'assets',
+    'libs'
+);
 
 // Online office Docs Viewer
 // Availabe rules are 'google', 'microsoft' or false
