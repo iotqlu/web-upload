@@ -239,7 +239,7 @@ $datetime_format = 'd.m.y H:i:s';
 
 // Allowed file extensions for create and rename files
 // e.g. 'txt,html,css,js'
-$allowed_file_extensions = 'gif,png,jpg,jpeg,html,htm,txt,css,js,json,svg,ico';
+$allowed_file_extensions = 'html,htm,txt,css,js,json,svg';
 
 // Allowed file extensions for upload files
 // e.g. 'gif,png,jpg,html,txt'
@@ -255,7 +255,9 @@ $favicon_path = '';
 $exclude_items = array(
     '*.php',
     'assets',
-    'libs'
+    'libs',
+    'SleekDB',
+    'database'
 );
 
 // Online office Docs Viewer
