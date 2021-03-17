@@ -1,6 +1,6 @@
 <?php
 //Default Configuration
-$CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":false,"calc_folder":false}';
+$CONFIG = '{"lang":"zh-CN","error_reporting":false,"show_hidden":false,"hide_Cols":false,"calc_folder":false}';
 
 /**
  * H3K | Tiny File Manager V2.4.4
@@ -3310,6 +3310,7 @@ function fm_show_nav_path($path)
                 }
                 $root_url .= $sep . implode($sep, $array);
             }
+            $root_url .= "<i class='bread-crumb'> | </i><a href='rate.php'><i class='fa fa-th' aria-hidden='true'></i></a>";
             echo '<div class="col-xs-6 col-sm-5">' . $root_url . '</div>';
             ?>
 
