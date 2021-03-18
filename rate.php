@@ -317,7 +317,7 @@ function cmp($a, $b)
 usort($voteds, "cmp");
 
 foreach($voteds as $i=>$v){
-    echo "<tr><td>".($i+1)."</td><td>".$v['name']."</td><td>".$v['up']."</td><td>".$v['down']."</td></tr>";
+    echo "<tr><td>".($i+1)."</td><td><a href='".$v['num']."' target='_blank'>".$v['name']."</a></td><td>".$v['up']."</td><td>".$v['down']."</td></tr>";
 }
 ?> 
       </tbody>
