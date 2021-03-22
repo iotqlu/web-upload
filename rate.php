@@ -58,8 +58,8 @@ foreach($students as $num=>$name){
             .rating {
                 display: inline-block;
                 width: 100%;
-                margin-top: 4px;
-                padding-top: 4px;
+                margin-top: 0px;
+                padding-top: 0px;
                 text-align: center;
             }
 
@@ -80,6 +80,24 @@ foreach($students as $num=>$name){
             .active {
                 color: #e31445;
             }
+
+            .link{
+                float: right;
+                display: inline-block;
+                cursor: pointer;
+                margin: 10px 10px 0px 0px;
+            }
+
+            .link:hover {
+                color: #e31445;
+                transition: all .2s ease-in-out;
+                transform: scale(1.1);
+            }
+
+            .link a{
+                border:0;
+            }
+
         </style>
         
 <style>
@@ -165,6 +183,30 @@ section{
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
 }
+
+.picture-avatar {
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.picture-avatar span {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+  margin: 0 auto;
+  z-index: 10;
+  text-align: center;
+}
+.picture-avatar img {
+  border-radius: 50%;
+  width: 32px;
+}
 </style>
 
         <script>
@@ -210,7 +252,7 @@ foreach($files as $file){
             ];
 
         var data = $.map(album, function (v) {
-            var baseUrl = 'http://localhost:9000/upload/';
+            var baseUrl = '/upload/';
             return {
                 full: baseUrl + v.id + "/preview.jpg",
                 img: baseUrl + v.id + "/preview.jpg",
@@ -222,7 +264,7 @@ foreach($files as $file){
 
         $fotorama.on('fotorama:showend', function (e, fotorama, extra) {
             $('.like, .dislike').attr('data-id', fotorama.activeFrame.id);
-            
+            $('#extlink').attr('href',"upload/"+fotorama.activeFrame.id+"/index.html");
             $.getJSON('vote.php',{'q':'','voted':fotorama.activeFrame.id},function(data){
                 $('.active').removeClass('active');
                 if(data.result == "1"){
@@ -284,6 +326,10 @@ if (isset($_SESSION[FM_SESSION_ID]['logged'])) {
         <div class="dislike grow" data-value="-1">
             <i class="fa fa-thumbs-down fa-3x dislike" aria-hidden="true"></i>
         </div>
+
+        <div class="link grow">
+            <a id="extlink" class="link" href="#" target="_blank"><i class="fa fa-external-link fa-2x" aria-hidden="true"></i></a>
+        </div>
     </div>
 <?php
 }
@@ -317,7 +363,14 @@ function cmp($a, $b)
 usort($voteds, "cmp");
 
 foreach($voteds as $i=>$v){
-    echo "<tr><td>".($i+1)."</td><td><a href='".$v['num']."' target='_blank'>".$v['name']."</a></td><td>".$v['up']."</td><td>".$v['down']."</td></tr>";
+    echo "<tr><td>".($i+1)."</td>
+        <td>
+            <div class='picture-avatar'>
+                <img src='assets/avatar.jpg' data-num='".$v['num']."'>
+            </div>
+            <a href='".$v['num']."' target='_blank'>".$v['name']."</a>
+        </td>
+        <td>".$v['up']."</td><td>".$v['down']."</td></tr>";
 }
 ?> 
       </tbody>
@@ -330,6 +383,27 @@ $(window).on("load resize", function() {
   var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
   $('.tbl-header').css({'padding-right':scrollWidth});
 }).resize();
+
+$(document).on('ready', function(){
+    $('.picture-avatar img').each(function(index,el){
+    var src = 'upload/'+$(el).attr('data-num')+"/avatar.jpg";
+    var img = new Image();
+    img.onload = function() {
+      if (!! el.parent)
+        el.parent.replaceChild(img, el)
+      else
+        el.src = src;
+    };
+    img.onerror = function(){
+        // there is nothing you need to do
+    };
+    img.src = src;
+
+});
+});
+
+
+
 </script>
     
 <footer class="floor floor--footer"><div class="floor__max-width"><p>© 2021, IoT QLU</p></div></footer>
