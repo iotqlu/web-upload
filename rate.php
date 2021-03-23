@@ -306,8 +306,21 @@ foreach($files as $file){
             $('.active').removeClass('active');
             $(this).addClass('active');
             if($(this).attr('data-value')){
-                $.getJSON('vote.php',{'v':'','voted':$(this).attr('data-id'),'result':$(this).attr('data-value')},function(data){
+                $.ajax('vote.php',{
+                    data:{'v':'','voted':$(this).attr('data-id'),'result':$(this).attr('data-value')},
+                    success:function(data,textStatus){
+                        
+                    },
+                    statusCode:{
+                        403:function(data){
+                            window.location.href = '/';
+                        }
+                    }
                 });
+
+                // $.getJSON('vote.php',{'v':'','voted':$(this).attr('data-id'),'result':$(this).attr('data-value')},function(data,textStatus){
+
+                // });
             }
             
         });

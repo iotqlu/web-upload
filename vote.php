@@ -19,6 +19,11 @@ if ( !defined( 'FM_SESSION_ID')) {
 
 $voter = $_SESSION[FM_SESSION_ID]['logged'];
 
+if(!isset($voter)){
+    header('HTTP/1.1 403 Forbidden');
+    exit;
+}
+
 if(isset($_GET["q"])){
     $voted = $_GET["voted"];
 
@@ -49,7 +54,7 @@ if(isset($_GET["v"])){
     }
 
     header('Content-Type: application/json');
-    echo json_decode(['status'=>'ok']);
+    echo json_encode(['status'=>'ok']);
 }
 
 
