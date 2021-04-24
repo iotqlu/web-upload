@@ -20,7 +20,7 @@ $use_auth = true;
 // Users: array('Username' => 'Password', 'Username2' => 'Password2', ...)
 // Generate secure password hash - https://tinyfilemanager.github.io/docs/pwd.html
 $auth_users = array(
-    'admin' => '$2y$10$/K.hjNr84lLNDt8fTXjoI.DBp6PpeyoJ.mGwrrLuCZfAwfSAGqhOW', //admin@123
+    'admin' => '$2y$10$9qXpAZ6aW/bBa9WJx/OZTeJ/NI8UokRHd/zopz35M0AHvr2jv2GKq', 
     'demo' => '$2y$10$Fg6Dz8oH9fPoZ2jJan5tZuv6Z4Kp7avtQ9bDfrdRntXtPeiMAZyGO', //12345
 '201795040038' => '$2y$10$N..6i0GgYX6Rbnf3inF2gea/cTpIuUN7qfjGobJBLLcYxRezQLQcO',
 '201903040042' => '$2y$10$dqvxeqyHC.DgVk8CmpATAO08HuJT4WnBIgxZ4AxeTbdaa1TjKln0u',
@@ -243,7 +243,7 @@ $allowed_file_extensions = 'html,htm,txt,css,js,json,svg';
 
 // Allowed file extensions for upload files
 // e.g. 'gif,png,jpg,html,txt'
-$allowed_upload_extensions = 'gif,png,jpg,jpeg,html,htm,txt,css,js,json,svg,ico';
+$allowed_upload_extensions = 'gif,png,jpg,jpeg,html,htm,txt,css,js,json,svg,ico,pdf,zip,doc,docx,md,sql';
 
 // Favicon path. This can be either a full url to an .PNG image, or a path based on the document root.
 // full path, e.g http://example.com/favicon.png
